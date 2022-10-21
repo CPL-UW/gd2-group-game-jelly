@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 5f;
     public Transform movePoint;
+	public Animator animator;
 
     public LayerMask whatStopsMovement;
     //public Animator anim;
