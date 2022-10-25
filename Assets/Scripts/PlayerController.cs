@@ -34,8 +34,10 @@ public class PlayerController : MonoBehaviour {
             }
 
             //anim.SetBool("moving", false);
+			animator.SetInteger("SpeedInt",0);
         } else {
             //anim.SetBool("moving", true);
+			animator.SetInteger("SpeedInt",1);
         }
     }
 }
