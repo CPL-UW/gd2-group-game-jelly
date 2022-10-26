@@ -6,11 +6,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 5f;
+    public float tilesMoved = 0f;
+
+    public bool p1Turn;
     public Transform movePoint;
 	public Animator animator;
 
     public LayerMask whatStopsMovement;
-    //public Animator anim;
 
     private void Start() {
         movePoint.parent = null;
@@ -25,11 +27,14 @@ public class PlayerController : MonoBehaviour {
 
                 if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), 0.2f, whatStopsMovement)) {
                     movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    tilesMoved = tilesMoved + 1; //counts tiles
                 } 
+
             } else if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
 
                 if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, whatStopsMovement)) {
                     movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    tilesMoved = tilesMoved + 1;
                 } 
             }
 
@@ -39,5 +44,12 @@ public class PlayerController : MonoBehaviour {
             //anim.SetBool("moving", true);
 			animator.SetInteger("SpeedInt",1);
         }
+
+        if (tilesMoved == 5)
+            {
+                p1Turn = false;
+                Debug.Log("Player 1's turn over!");
+                tilesMoved = 0;
+            }
     }
 }
