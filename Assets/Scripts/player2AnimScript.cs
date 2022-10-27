@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player1AnimScript : MonoBehaviour
+public class player2AnimScript : MonoBehaviour
 {
     public Animator animator;
 
@@ -13,7 +13,7 @@ public class player1AnimScript : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.Find("Player").GetComponent<PlayerController>().SpeedInt == 1)
+        if (GameObject.Find("Player2").GetComponent<Player2Controller>().SpeedInt == 1)
         {
             animator.SetInteger("MoveInt", 1);
         }

@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class Player2Controller : MonoBehaviour {
 
     public float moveSpeed = 5f;
     public float tilesMoved = 0f;
 
-    public bool p1Turn;
+    public bool p2Turn;
     public Transform movePoint;
 	public int SpeedInt;
 
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     private void Update() {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (p1Turn == true)
+        if (p2Turn == true)
         {
             if(Vector3.Distance(transform.position, movePoint.position) <= 0.05f) {
 
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 
             if (tilesMoved == 5)
                 {
-                    //p1Turn = false;
+                    //p2Turn = false;
                     //Debug.Log("Player 1's turn over!");
                     //tilesMoved = 0;
                 }

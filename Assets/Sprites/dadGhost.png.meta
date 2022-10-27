@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ed5420b21c7c564bbc7c3b9c01bbb29
+guid: 683a3857459869942807a8c0ed538e80
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player2Anims_0
+      name: dadGhost_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,24 +113,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 11}
-        - {x: -8, y: -16}
-        - {x: 7, y: -16}
-        - {x: 7, y: 11}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b93499d3783513749aacd1c287c85bac
-      internalID: -1316738587
+      spriteID: 79d80f6c4fab48b49bf83d0bb06e7668
+      internalID: 121698153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player2Anims_1
+      name: dadGhost_1
       rect:
         serializedVersion: 2
         x: 32
@@ -138,24 +134,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 11}
-        - {x: -8, y: -16}
-        - {x: 7, y: -16}
-        - {x: 7, y: 11}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 976740a2a314b1e4aa8ec4404af30dea
-      internalID: 757578177
+      spriteID: 6c230bee78ac5bc4b86af46e22954182
+      internalID: 290125764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player2Anims_2
+      name: dadGhost_2
       rect:
         serializedVersion: 2
         x: 64
@@ -163,24 +155,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 11}
-        - {x: -8, y: -16}
-        - {x: 7, y: -16}
-        - {x: 7, y: 11}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4ae651c1e67b4249bf5b953db76c349
-      internalID: -375746019
+      spriteID: a605e413fc2ef7947bdc98079fc2eda0
+      internalID: 204253215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player2Anims_3
+      name: dadGhost_3
       rect:
         serializedVersion: 2
         x: 96
@@ -188,24 +176,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 11}
-        - {x: -8, y: -16}
-        - {x: 7, y: -16}
-        - {x: 7, y: 11}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f247eee5f77a0c04fa388c267759f557
-      internalID: 1915788176
+      spriteID: 69ac2bf5a5a39074d844c7fbbf83c8ad
+      internalID: 1988395614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player2Anims_4
+      name: dadGhost_4
       rect:
         serializedVersion: 2
         x: 128
@@ -213,18 +197,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 11}
-        - {x: -8, y: -16}
-        - {x: 7, y: -16}
-        - {x: 7, y: 11}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7752e73d457c3341b853a4c6e61d389
-      internalID: -1178613033
+      spriteID: 8d4f12a87d82056439bd60a50df23bdc
+      internalID: 1972098400
       vertices: []
       indices: 
       edges: []
@@ -240,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player2Anims_1: 757578177
-      Player2Anims_2: -375746019
-      Player2Anims_3: 1915788176
-      Player2Anims_4: -1178613033
-      Player2Anims_0: -1316738587
+      dadGhost_2: 204253215
+      dadGhost_4: 1972098400
+      dadGhost_1: 290125764
+      dadGhost_3: 1988395614
+      dadGhost_0: 121698153
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
