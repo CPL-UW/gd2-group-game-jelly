@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class turnControllerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject player1;
     public GameObject p1gui;
     public GameObject player2;
@@ -25,15 +24,14 @@ public class turnControllerScript : MonoBehaviour
         player2.GetComponent<Player2Controller>().p2Turn = false;
         ghost.GetComponent<dadGhostScript>().ghostTurn = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (player1.GetComponent<PlayerController>().tilesMoved == 5) //if p1 moves 5 tiles
         {
             player1.GetComponent<PlayerController>().p1Turn = false; //end p1's turn
             p1gui.SetActive(false); //deactivate p1's gui
-            Debug.Log("Player 1's turn over!"); //debug line
+            //Debug.Log("Player 1's turn over!"); //debug line
             player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
             player2.GetComponent<Player2Controller>().p2Turn = true; //start p2's turn
             p2gui.SetActive(true); //activate p2's gui
@@ -43,7 +41,7 @@ public class turnControllerScript : MonoBehaviour
         {
             player2.GetComponent<Player2Controller>().p2Turn = false;
             p2gui.SetActive(false);
-            Debug.Log("Player 2's turn over!");
+            //Debug.Log("Player 2's turn over!");
             player2.GetComponent<Player2Controller>().tilesMoved = 0;
             ghost.GetComponent<dadGhostScript>().ghostTurn = true;
             ggui.SetActive(true);
@@ -53,7 +51,7 @@ public class turnControllerScript : MonoBehaviour
         {
             ghost.GetComponent<dadGhostScript>().ghostTurn = false;
             ggui.SetActive(false);
-            Debug.Log("Ghost's turn over!");
+            //Debug.Log("Ghost's turn over!");
             ghost.GetComponent<dadGhostScript>().tilesMoved = 0;
             player1.GetComponent<PlayerController>().p1Turn = true;
             p1gui.SetActive(true);

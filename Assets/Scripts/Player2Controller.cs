@@ -40,10 +40,8 @@ public class Player2Controller : MonoBehaviour {
                     } 
                 }
 
-                //anim.SetBool("moving", false);
 			    SpeedInt = 0;
             } else {
-                //anim.SetBool("moving", true);
 			    SpeedInt = 1;
             }
 

@@ -13,14 +13,12 @@ public class dadGhostScript : MonoBehaviour
     public float tilesMoved = 0f;
     public bool start;
     
-    // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
         start = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);

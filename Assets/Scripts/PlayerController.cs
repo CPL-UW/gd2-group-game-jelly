@@ -39,11 +39,9 @@ public class PlayerController : MonoBehaviour {
                         tilesMoved = tilesMoved + 1;
                     } 
                 }
-
-                //anim.SetBool("moving", false);
+                
 			    SpeedInt = 0;
             } else {
-                //anim.SetBool("moving", true);
 			    SpeedInt = 1;
             }
 
