@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool p1Turn;
     public Transform movePoint;
-	public Animator animator;
+	public int SpeedInt;
 
     public LayerMask whatStopsMovement;
 
@@ -39,10 +39,10 @@ public class PlayerController : MonoBehaviour {
             }
 
             //anim.SetBool("moving", false);
-			animator.SetInteger("SpeedInt",0);
+			SpeedInt = 0;
         } else {
             //anim.SetBool("moving", true);
-			animator.SetInteger("SpeedInt",1);
+			SpeedInt = 1;
         }
 
         if (tilesMoved == 5)
