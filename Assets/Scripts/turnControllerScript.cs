@@ -17,22 +17,22 @@ public class turnControllerScript : MonoBehaviour
 
     void Start()
     {
-        player1.GetComponent<PlayerController>().p1Turn = true;
+        player1.GetComponent<Player1Controller>().p1Turn = true;
         p1gui.SetActive(true);
         p2gui.SetActive(false);
         ggui.SetActive(false);
         player2.GetComponent<Player2Controller>().p2Turn = false;
         ghost.GetComponent<dadGhostScript>().ghostTurn = false;
     }
-    
+
     void Update()
     {
-        if (player1.GetComponent<PlayerController>().tilesMoved == 5) //if p1 moves 5 tiles
+        if (player1.GetComponent<Player1Controller>().tilesMoved == 5) //if p1 moves 5 tiles
         {
-            player1.GetComponent<PlayerController>().p1Turn = false; //end p1's turn
+            player1.GetComponent<Player1Controller>().p1Turn = false; //end p1's turn
             p1gui.SetActive(false); //deactivate p1's gui
             //Debug.Log("Player 1's turn over!"); //debug line
-            player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
+            player1.GetComponent<Player1Controller>().tilesMoved = 0; //reset p1's tiles
             player2.GetComponent<Player2Controller>().p2Turn = true; //start p2's turn
             p2gui.SetActive(true); //activate p2's gui
         }
@@ -53,7 +53,7 @@ public class turnControllerScript : MonoBehaviour
             ggui.SetActive(false);
             //Debug.Log("Ghost's turn over!");
             ghost.GetComponent<dadGhostScript>().tilesMoved = 0;
-            player1.GetComponent<PlayerController>().p1Turn = true;
+            player1.GetComponent<Player1Controller>().p1Turn = true;
             p1gui.SetActive(true);
         }
     }

@@ -13,7 +13,7 @@ public class player1AnimScript : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.Find("Player").GetComponent<PlayerController>().SpeedInt == 1)
+        if (GameObject.Find("Player1").GetComponent<Player1Controller>().SpeedInt == 1)
         {
             animator.SetInteger("MoveInt", 1);
         }
