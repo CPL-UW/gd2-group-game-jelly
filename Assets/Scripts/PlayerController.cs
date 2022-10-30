@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This is actually the player1 controller
 public class PlayerController : MonoBehaviour
 {
 
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
             {
 
-                if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
                     // Set player direction
                     if (Input.GetAxisRaw("Horizontal") > 0 && !facingRight)
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
                     }
 
                 }
-                else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+                else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
                 {
 
                     if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, whatStopsMovement))
