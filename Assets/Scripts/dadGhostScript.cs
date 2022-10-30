@@ -7,16 +7,24 @@ public class dadGhostScript : MonoBehaviour
     public bool ghostTurn;
     public int direction = 0;
     public float moveSpeed = 5f;
-    public Transform movePoint; 
+    public Transform movePoint;
     public LayerMask whatStopsMovement;
     public LayerMask playerLayer;
     public float tilesMoved = 0f;
     public bool start;
-    
+    public bool facingRight;
+
     void Start()
     {
         movePoint.parent = null;
         start = true;
+
+        // Ensure ghost is facing right to start
+        if (gameObject.transform.localScale.x < 0)
+        {
+            Flip();
+        }
+        facingRight = false;
     }
 
     void Update()
@@ -40,37 +48,60 @@ public class dadGhostScript : MonoBehaviour
     IEnumerator GhostMove()
     {
         start = false;
-        
-        direction = Random.Range(1,5);
+
+        direction = Random.Range(1, 5);
 
         if (direction == 1) //north
         {
-            if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), 0.2f, playerLayer)) {
-                    movePoint.position += new Vector3(0f, 1f, 0f);
-            } 
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), 0.2f, playerLayer))
+            {
+                movePoint.position += new Vector3(0f, 1f, 0f);
+            }
         }
         if (direction == 2) //east
         {
-            if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), 0.2f, playerLayer)) {
-                    movePoint.position += new Vector3(1f, 0f, 0f);
-            } 
+            if (!facingRight)
+            {
+                Flip();
+            }
+
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), 0.2f, playerLayer))
+            {
+                movePoint.position += new Vector3(1f, 0f, 0f);
+            }
         }
         if (direction == 3) //south
         {
-            if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), 0.2f, playerLayer)) {
-                    movePoint.position += new Vector3(0f, -1f, 0f);
-            } 
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), 0.2f, playerLayer))
+            {
+                movePoint.position += new Vector3(0f, -1f, 0f);
+            }
         }
         if (direction == 4) //west
         {
-            if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), 0.2f, playerLayer)) {
-                    movePoint.position += new Vector3(-1f, 0f, 0f);
-            } 
+            if (facingRight)
+            {
+                Flip();
+            }
+
+            if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement) && !Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), 0.2f, playerLayer))
+            {
+                movePoint.position += new Vector3(-1f, 0f, 0f);
+            }
         }
 
         tilesMoved += 1;
         //Debug.Log(tilesMoved);
         yield return new WaitForSeconds(0.5f);
         start = true;
+    }
+
+    // Flips ghosts x direction
+    private void Flip()
+    {
+        Vector3 currScale = gameObject.transform.localScale;
+        currScale.x *= -1;
+        gameObject.transform.localScale = currScale;
+        facingRight = !facingRight;
     }
 }
