@@ -8,7 +8,7 @@ public class turnControllerScript : MonoBehaviour
     public GameObject p1gui;
     public GameObject player2;
     public GameObject p2gui;
-    //public GameObject player3;        //uncomment when more players added
+    //public GameObject player3;        //uncomment if/when more players added
     //public GameObject p3gui;
     //public GameObject player4;
     //public GameObject p4gui;
@@ -24,7 +24,7 @@ public class turnControllerScript : MonoBehaviour
         player2.GetComponent<Player2Controller>().p2Turn = false;
         ghost.GetComponent<dadGhostScript>().ghostTurn = false;
     }
-    
+
     void Update()
     {
         if (player1.GetComponent<PlayerController>().tilesMoved == 5) //if p1 moves 5 tiles
@@ -33,8 +33,8 @@ public class turnControllerScript : MonoBehaviour
             p1gui.SetActive(false); //deactivate p1's gui
             //Debug.Log("Player 1's turn over!"); //debug line
             player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
-            player2.GetComponent<Player2Controller>().p2Turn = true; //start p2's turn
             p2gui.SetActive(true); //activate p2's gui
+            StartCoroutine(DelayPlayerChange()); // wait a bit before giving control to player2 
         }
 
         if (player2.GetComponent<Player2Controller>().tilesMoved == 5)
@@ -56,5 +56,11 @@ public class turnControllerScript : MonoBehaviour
             player1.GetComponent<PlayerController>().p1Turn = true;
             p1gui.SetActive(true);
         }
+    }
+
+    IEnumerator DelayPlayerChange()
+    {
+        yield return new WaitForSeconds(0.75f);
+        player2.GetComponent<Player2Controller>().p2Turn = true; //start p2's turn
     }
 }
