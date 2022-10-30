@@ -24,14 +24,13 @@ public class PlayerController : MonoBehaviour
     {
         movePoint.parent = null;
 
-        if (gameObject.transform.localScale.x > 0)
+        // Ensure p1 is facing right to start
+        if (gameObject.transform.localScale.x < 0)
         {
-            facingRight = true;
+            Flip();
         }
-        else
-        {
-            facingRight = false;
-        }
+        facingRight = true;
+
     }
 
 
