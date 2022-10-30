@@ -23,14 +23,12 @@ public class Player2Controller : MonoBehaviour
     {
         movePoint.parent = null;
 
+        // Ensure p2 is facing left to start
         if (gameObject.transform.localScale.x > 0)
         {
-            facingRight = true;
+            Flip();
         }
-        else
-        {
-            facingRight = false;
-        }
+        facingRight = false;
     }
 
 

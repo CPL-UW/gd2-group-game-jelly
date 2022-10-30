@@ -34,7 +34,11 @@ public class turnControllerScript : MonoBehaviour
             //Debug.Log("Player 1's turn over!"); //debug line
             player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
             p2gui.SetActive(true); //activate p2's gui
-            StartCoroutine(DelayPlayerChange()); // wait a bit before giving control to player2 
+
+            // Unneeded after changing keybinding for each player - keep incase we change back
+            //StartCoroutine(DelayPlayerChange()); // wait a bit before giving control to player2 
+
+            player2.GetComponent<Player2Controller>().p2Turn = true; // give control to p2
         }
 
         if (player2.GetComponent<Player2Controller>().tilesMoved == 5)
@@ -58,9 +62,9 @@ public class turnControllerScript : MonoBehaviour
         }
     }
 
-    IEnumerator DelayPlayerChange()
+    /* IEnumerator DelayPlayerChange()
     {
         yield return new WaitForSeconds(0.75f);
         player2.GetComponent<Player2Controller>().p2Turn = true; //start p2's turn
-    }
+    } */
 }
