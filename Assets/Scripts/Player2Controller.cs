@@ -8,7 +8,7 @@ public class Player2Controller : MonoBehaviour
 
     public float moveSpeed = 5f;
     public int tilesMoved = 0;
-
+    private int tilesMovedMax = 5;
     public bool p2Turn;
 
     public Transform movePoint;
@@ -95,5 +95,15 @@ public class Player2Controller : MonoBehaviour
         currScale.x *= -1;
         gameObject.transform.localScale = currScale;
         facingRight = !facingRight;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        //Debug.Log("Collision");
+        if(other.gameObject.tag.Equals("Ghost")) {
+            //Debug.Log("Ghost Collision");
+            GhostFightUIScript.Instance.ToggleVisible();
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -51,7 +51,7 @@ public class turnControllerScript : MonoBehaviour
             ggui.SetActive(true);
         }
 
-        if (ghost.GetComponent<dadGhostScript>().tilesMoved == 10) //dad ghost has like 10 tiles I think
+        if (ghost != null && ghost.GetComponent<dadGhostScript>().tilesMoved == 10) //dad ghost has like 10 tiles I think
         {
             ghost.GetComponent<dadGhostScript>().ghostTurn = false;
             ggui.SetActive(false);

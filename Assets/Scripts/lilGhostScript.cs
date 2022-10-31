@@ -31,12 +31,12 @@ public class lilGhostScript : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (dadGhost.GetComponent<dadGhostScript>().start == true)
+        if (dadGhost != null && dadGhost.GetComponent<dadGhostScript>().start == true)
         {
             start = true;
         }
 
-        if (dadGhost.GetComponent<dadGhostScript>().ghostTurn == true && start == true)
+        if (dadGhost != null && dadGhost.GetComponent<dadGhostScript>().ghostTurn == true && start == true)
         {
             StartCoroutine("GhostMove");
         }
