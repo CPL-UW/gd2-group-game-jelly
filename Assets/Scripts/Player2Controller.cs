@@ -8,8 +8,13 @@ public class Player2Controller : MonoBehaviour
 
     public float moveSpeed = 5f;
     public int tilesMoved = 0;
-    private int tilesMovedMax = 5;
+    public int tilesMovedMax = 5;
     public bool p2Turn;
+    public bool p2CanMove = true;
+    public bool hasPupLight = false;
+    public bool hasPupEMF = false;
+    public bool hasPupVacuum = false;
+    public GameObject Inventory;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -41,7 +46,7 @@ public class Player2Controller : MonoBehaviour
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
             {
 
-                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) && p2CanMove == true || Input.GetKey(KeyCode.RightArrow) && p2CanMove == true )
                 {
                     // Set player direction
                     if (Input.GetAxisRaw("Horizontal") > 0 && !facingRight)
@@ -61,7 +66,7 @@ public class Player2Controller : MonoBehaviour
                     }
 
                 }
-                else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+                else if (Input.GetKey(KeyCode.UpArrow) && p2CanMove == true || Input.GetKey(KeyCode.DownArrow) && p2CanMove == true )
                 {
 
                     if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, whatStopsMovement))
@@ -77,13 +82,15 @@ public class Player2Controller : MonoBehaviour
             {
                 SpeedInt = 1;
             }
-
-            if (tilesMoved == 5)
-            {
-                //p1Turn = false;
-                //Debug.Log("Player 1's turn over!");
-                //tilesMoved = 0;
-            }
+        }
+        
+        if (Inventory.activeInHierarchy == true)
+        {
+            p2CanMove = false;
+        }
+        else
+        {
+            p2CanMove = true;
         }
     }
 
@@ -105,5 +112,41 @@ public class Player2Controller : MonoBehaviour
             tilesMoved = tilesMovedMax;
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.tag.Equals("pupLight")) {
+            hasPupLight = true;
+            Inventory.GetComponent<inventoryScript>().Flashlight.SetActive(true);
+
+            //Debug.Log("Flashlight!");
+            
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag.Equals("pupEMF")) {
+            hasPupEMF = true;
+            Inventory.GetComponent<inventoryScript>().EMF.SetActive(true);
+
+            //Debug.Log("EMF!");
+            
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag.Equals("pupVacuum")) {
+            hasPupLight = true;
+            Inventory.GetComponent<inventoryScript>().Vacuum.SetActive(true);
+
+            //Debug.Log("Vacuum!");
+            
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void useLight(){
+        tilesMovedMax = tilesMovedMax + 5;
+        hasPupLight = false;
+        Inventory.GetComponent<inventoryScript>().Flashlight.SetActive(false);
     }
 }

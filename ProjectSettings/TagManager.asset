@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ghost
+  - pupLight
+  - pupEMF
+  - pupVacuum
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - UI
   - StopsMovement
   - PlayerLayer
-  - 
+  - Items
   - 
   - 
   - 

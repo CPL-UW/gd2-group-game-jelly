@@ -27,12 +27,14 @@ public class turnControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (player1.GetComponent<PlayerController>().tilesMoved == 5) //if p1 moves 5 tiles
+        if (player1.GetComponent<PlayerController>().tilesMoved == player1.GetComponent<PlayerController>().tilesMovedMax) //if p1 moves max tiles
         {
             player1.GetComponent<PlayerController>().p1Turn = false; //end p1's turn
             p1gui.SetActive(false); //deactivate p1's gui
             //Debug.Log("Player 1's turn over!"); //debug line
             player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
+            player1.GetComponent<PlayerController>().tilesMovedMax = 5; //resets p1's max tiles, if changed (ie flashlight)
+            player1.GetComponent<PlayerController>().SpeedInt = 0; //stops moving anim
             p2gui.SetActive(true); //activate p2's gui
 
             // Unneeded after changing keybinding for each player - keep incase we change back
@@ -41,12 +43,14 @@ public class turnControllerScript : MonoBehaviour
             player2.GetComponent<Player2Controller>().p2Turn = true; // give control to p2
         }
 
-        if (player2.GetComponent<Player2Controller>().tilesMoved == 5)
+        if (player2.GetComponent<Player2Controller>().tilesMoved == player2.GetComponent<Player2Controller>().tilesMovedMax)
         {
             player2.GetComponent<Player2Controller>().p2Turn = false;
             p2gui.SetActive(false);
             //Debug.Log("Player 2's turn over!");
             player2.GetComponent<Player2Controller>().tilesMoved = 0;
+            player2.GetComponent<Player2Controller>().tilesMovedMax = 5;
+            player2.GetComponent<Player2Controller>().SpeedInt = 0;
             ghost.GetComponent<dadGhostScript>().ghostTurn = true;
             ggui.SetActive(true);
         }

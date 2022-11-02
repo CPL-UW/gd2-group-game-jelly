@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b615e6cb2ce4be44cab644534c3555b8
+guid: ff746d1ef7feafc458e6a5559b0402b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,76 +105,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pup3_0
+      name: itemsButton_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 44
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbcacfec714d5fd4e9ccdf6b283d60bc
-      internalID: -1500146806
+      spriteID: f77bbc004e389194b87c0e88529cbadd
+      internalID: 82673797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pup3_1
+      name: itemsButton_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 44
         y: 0
-        width: 32
-        height: 32
+        width: 44
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad97567ba0c257744828dda63fa48f36
-      internalID: 465828735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pup3_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b37338850d6b3c4891301486f122e26
-      internalID: 409131488
+      spriteID: 99225a33c098d174bb895c3cc1b42780
+      internalID: 1459184682
       vertices: []
       indices: 
       edges: []
@@ -190,9 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pup3_2: 409131488
-      pup3_1: 465828735
-      pup3_0: -1500146806
+      itemsButton_0: 82673797
+      itemsButton_1: 1459184682
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

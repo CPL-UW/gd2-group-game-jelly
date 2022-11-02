@@ -9,8 +9,13 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public int tilesMoved = 0;
-    private int tilesMovedMax = 5;
+    public int tilesMovedMax = 5; //set to public so items can change max move tiles
     public bool p1Turn;
+    public bool p1CanMove = true; //added this so that menus can pause movement
+    public bool hasPupLight = false;
+    public bool hasPupEMF = false;
+    public bool hasPupVacuum = false;
+    public GameObject Inventory;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -45,7 +50,7 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
             {
 
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+                if (Input.GetKey(KeyCode.A) && p1CanMove == true || Input.GetKey(KeyCode.D) && p1CanMove == true)
                 {
                     // Set player direction
                     if (Input.GetAxisRaw("Horizontal") > 0 && !facingRight)
@@ -65,7 +70,7 @@ public class PlayerController : MonoBehaviour
                     }
 
                 }
-                else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+                else if (Input.GetKey(KeyCode.W) && p1CanMove == true || Input.GetKey(KeyCode.S) && p1CanMove == true )
                 {
 
                     if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, whatStopsMovement))
@@ -81,13 +86,15 @@ public class PlayerController : MonoBehaviour
             {
                 SpeedInt = 1;
             }
+        }
 
-            if (tilesMoved == 5)
-            {
-                //p1Turn = false;
-                //Debug.Log("Player 1's turn over!");
-                //tilesMoved = 0;
-            }
+        if (Inventory.activeInHierarchy == true)
+        {
+            p1CanMove = false;
+        }
+        else
+        {
+            p1CanMove = true;
         }
     }
 
@@ -101,13 +108,48 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    
+    public void useLight(){
+        tilesMovedMax = tilesMovedMax + 5;
+        hasPupLight = false;
+        Inventory.GetComponent<inventoryScript>().Flashlight.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         //Debug.Log("Collision");
         if(other.gameObject.tag.Equals("Ghost")) {
             //Debug.Log("Ghost Collision");
             
             GhostFightUIScript.Instance.ToggleVisible();
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag.Equals("pupLight")) {
+            hasPupLight = true;
+            Inventory.GetComponent<inventoryScript>().Flashlight.SetActive(true);
+
+            //Debug.Log("Flashlight!");
+            
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag.Equals("pupEMF")) {
+            hasPupEMF = true;
+            Inventory.GetComponent<inventoryScript>().EMF.SetActive(true);
+
+            //Debug.Log("EMF!");
+            
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag.Equals("pupVacuum")) {
+            hasPupLight = true;
+            Inventory.GetComponent<inventoryScript>().Vacuum.SetActive(true);
+
+            //Debug.Log("Vacuum!");
+            
             tilesMoved = tilesMovedMax;
             Destroy(other.gameObject);
         }
