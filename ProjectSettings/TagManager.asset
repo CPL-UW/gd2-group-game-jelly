@@ -8,6 +8,9 @@ TagManager:
   - pupLight
   - pupEMF
   - pupVacuum
+  - Rock
+  - Paper
+  - Scissors
   layers:
   - Default
   - TransparentFX

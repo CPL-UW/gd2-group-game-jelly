@@ -13,6 +13,7 @@ public class lilGhostScript : MonoBehaviour
     private bool start;
     public GameObject dadGhost;
     public bool facingRight;
+    public int rpsChoice;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class lilGhostScript : MonoBehaviour
             Flip();
         }
         facingRight = false;
+        rpsChoice = Random.Range(1,4);
     }
 
     void Update()

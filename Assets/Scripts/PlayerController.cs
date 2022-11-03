@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour
     public bool hasPupLight = false;
     public bool hasPupEMF = false;
     public bool hasPupVacuum = false;
+    public bool hasRock = false;
+    public bool hasPaper = false;
+    public bool hasScissors = false;
     public GameObject Inventory;
+    public GameObject CardInvy;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -119,9 +123,12 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag.Equals("Ghost")) {
             //Debug.Log("Ghost Collision");
             
-            GhostFightUIScript.Instance.ToggleVisible();
-            tilesMoved = tilesMovedMax;
-            Destroy(other.gameObject);
+            if(hasRock || hasPaper || hasScissors) {
+                GhostFightUIScript.Instance.TogglePlayerOneFight();
+                tilesMoved = tilesMovedMax;
+                Destroy(other.gameObject);
+            }
+            
         }
 
         if(other.gameObject.tag.Equals("pupLight")) {
@@ -152,6 +159,42 @@ public class PlayerController : MonoBehaviour
             
             tilesMoved = tilesMovedMax;
             Destroy(other.gameObject);
+        }
+
+        if(!hasRock) {
+            if(other.gameObject.tag.Equals("Rock")) {
+                hasRock = true;
+                CardInvy.GetComponent<CardInvyScript>().Rock.SetActive(true);
+
+                //Debug.Log("Flashlight!");
+                
+                tilesMoved = tilesMovedMax;
+                Destroy(other.gameObject);
+            }
+        }
+        
+        if(!hasPaper) {
+            if(other.gameObject.tag.Equals("Paper")) {
+                hasRock = true;
+                CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(true);
+
+                //Debug.Log("Flashlight!");
+                
+                tilesMoved = tilesMovedMax;
+                Destroy(other.gameObject);
+            }
+        }
+
+        if(!hasScissors) {
+            if(other.gameObject.tag.Equals("Scissors")) {
+                hasRock = true;
+                CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(true);
+
+                //Debug.Log("Flashlight!");
+                
+                tilesMoved = tilesMovedMax;
+                Destroy(other.gameObject);
+            }
         }
     }
 

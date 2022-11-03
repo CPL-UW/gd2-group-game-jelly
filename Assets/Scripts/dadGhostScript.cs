@@ -13,6 +13,7 @@ public class dadGhostScript : MonoBehaviour
     public float tilesMoved = 0f;
     public bool start;
     public bool facingRight;
+    public int rpsChoice;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class dadGhostScript : MonoBehaviour
             Flip();
         }
         facingRight = false;
+        rpsChoice = Random.Range(1,4);
     }
 
     void Update()
