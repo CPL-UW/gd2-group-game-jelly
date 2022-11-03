@@ -80,24 +80,30 @@ public class GhostFightUIScript : MonoBehaviour {
 
     private void PlayerOnefight() {
         Rock.GetComponent<Button>().onClick.AddListener(() => {
+            PlayerOne.GetComponent<PlayerController>().hasRock = false;
             TogglePlayerOneFight();
         });
         Paper.GetComponent<Button>().onClick.AddListener(() => {
+            PlayerOne.GetComponent<PlayerController>().hasPaper = false;
             TogglePlayerOneFight();
         });
         Scissors.GetComponent<Button>().onClick.AddListener(() => {
+            PlayerOne.GetComponent<PlayerController>().hasScissors = false;
             TogglePlayerOneFight();
         });
     }
 
     private void PlayerTwofight() {
         Rock.GetComponent<Button>().onClick.AddListener(() => {
+            PlayerTwo.GetComponent<Player2Controller>().hasRock = false;
             TogglePlayerTwoFight();
         });
         Paper.GetComponent<Button>().onClick.AddListener(() => {
+            PlayerTwo.GetComponent<Player2Controller>().hasPaper = false;
             TogglePlayerTwoFight();
         });
         Scissors.GetComponent<Button>().onClick.AddListener(() => {
+            PlayerTwo.GetComponent<Player2Controller>().hasScissors = false;
             TogglePlayerTwoFight();
         });
     }
