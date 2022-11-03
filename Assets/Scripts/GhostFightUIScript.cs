@@ -53,13 +53,13 @@ public class GhostFightUIScript : MonoBehaviour {
         } else {
             Time.timeScale = 1f;
         }
-        if(!PlayerTwo.GetComponent<PlayerController>().hasRock){
+        if(!PlayerTwo.GetComponent<Player2Controller>().hasRock){
             Rock.gameObject.SetActive(false);
         }
-        if(!PlayerTwo.GetComponent<PlayerController>().hasPaper){
+        if(!PlayerTwo.GetComponent<Player2Controller>().hasPaper){
             Paper.gameObject.SetActive(false);
         }
-        if(!PlayerTwo.GetComponent<PlayerController>().hasScissors){
+        if(!PlayerTwo.GetComponent<Player2Controller>().hasScissors){
             Scissors.gameObject.SetActive(false);
         }
         PlayerTwofight();
