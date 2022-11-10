@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool hasScissors = false;
     public GameObject Inventory;
     public GameObject CardInvy;
+    public GameObject Bob;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -90,6 +91,8 @@ public class PlayerController : MonoBehaviour
             {
                 SpeedInt = 1;
             }
+
+            Bob.SetActive(true);
         }
 
         if (Inventory.activeInHierarchy == true || CardInvy.activeInHierarchy == true)
@@ -99,6 +102,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             p1CanMove = true;
+        }
+
+        if (p1Turn == false)
+        {
+            Bob.SetActive(false);
         }
     }
 

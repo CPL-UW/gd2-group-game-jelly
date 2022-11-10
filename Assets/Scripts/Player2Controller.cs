@@ -21,6 +21,7 @@ public class Player2Controller : MonoBehaviour
     public GameObject CardInvy;
     public Transform movePoint;
     public int SpeedInt;
+    public GameObject Bob;
 
     public LayerMask whatStopsMovement;
 
@@ -85,6 +86,8 @@ public class Player2Controller : MonoBehaviour
             {
                 SpeedInt = 1;
             }
+
+            Bob.SetActive(true);
         }
         
         if (Inventory.activeInHierarchy == true || CardInvy.activeInHierarchy == true)
@@ -94,6 +97,11 @@ public class Player2Controller : MonoBehaviour
         else
         {
             p2CanMove = true;
+        }
+
+        if (p2Turn == false)
+        {
+            Bob.SetActive(false);
         }
     }
 
