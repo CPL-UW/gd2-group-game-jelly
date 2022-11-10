@@ -87,7 +87,7 @@ public class Player2Controller : MonoBehaviour
             }
         }
         
-        if (Inventory.activeInHierarchy == true)
+        if (Inventory.activeInHierarchy == true || CardInvy.activeInHierarchy == true)
         {
             p2CanMove = false;
         }

@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Inventory.activeInHierarchy == true)
+        if (Inventory.activeInHierarchy == true || CardInvy.activeInHierarchy == true)
         {
             p1CanMove = false;
         }
