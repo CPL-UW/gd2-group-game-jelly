@@ -137,9 +137,7 @@ public class Player2Controller : MonoBehaviour
                 GhostFightUIScript.Instance.TogglePlayerTwoFight();
                 tilesMoved = tilesMovedMax;
                 
-                if (!other.gameObject.layer.Equals("DadGhostLayer")){
-                    Destroy(other.gameObject);
-                }
+                Destroy(other.gameObject);
                 
                 
             }
