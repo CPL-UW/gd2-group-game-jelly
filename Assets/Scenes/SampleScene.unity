@@ -9378,7 +9378,7 @@ GameObject:
   - component: {fileID: 681350148}
   - component: {fileID: 681350150}
   - component: {fileID: 681350149}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dadGhostSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10789,7 +10789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 948984537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dadGhostMovePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13388,7 +13388,7 @@ GameObject:
   - component: {fileID: 1398529127}
   - component: {fileID: 1398529129}
   - component: {fileID: 1398529128}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dadGhost
   m_TagString: Ghost
   m_Icon: {fileID: 0}

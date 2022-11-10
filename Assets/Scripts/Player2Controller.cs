@@ -136,7 +136,12 @@ public class Player2Controller : MonoBehaviour
             if(hasRock || hasPaper || hasScissors) {
                 GhostFightUIScript.Instance.TogglePlayerTwoFight();
                 tilesMoved = tilesMovedMax;
-                Destroy(other.gameObject);
+                
+                if (!other.gameObject.layer.Equals("DadGhostLayer")){
+                    Destroy(other.gameObject);
+                }
+                
+                
             }
             
             
@@ -196,7 +201,7 @@ public class Player2Controller : MonoBehaviour
         
         if(!hasPaper) {
             if(other.gameObject.tag.Equals("Paper")) {
-                hasRock = true;
+                hasPaper = true;
                 CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(true);
 
                 //Debug.Log("Flashlight!");
@@ -208,7 +213,7 @@ public class Player2Controller : MonoBehaviour
 
         if(!hasScissors) {
             if(other.gameObject.tag.Equals("Scissors")) {
-                hasRock = true;
+                hasScissors = true;
                 CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(true);
 
                 //Debug.Log("Flashlight!");

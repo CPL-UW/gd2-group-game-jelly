@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
         
         if(!hasPaper) {
             if(other.gameObject.tag.Equals("Paper")) {
-                hasRock = true;
+                hasPaper = true;
                 CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(true);
 
                 //Debug.Log("Flashlight!");
@@ -219,7 +219,7 @@ public class PlayerController : MonoBehaviour
 
         if(!hasScissors) {
             if(other.gameObject.tag.Equals("Scissors")) {
-                hasRock = true;
+                hasScissors = true;
                 CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(true);
 
                 //Debug.Log("Flashlight!");
