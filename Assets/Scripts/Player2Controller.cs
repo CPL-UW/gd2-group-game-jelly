@@ -14,6 +14,7 @@ public class Player2Controller : MonoBehaviour
     public bool hasPupLight = false;
     public bool hasPupEMF = false;
     public bool hasPupVacuum = false;
+    public bool hasBS = false;
     public bool hasRock = false;
     public bool hasPaper = false;
     public bool hasScissors = false;
@@ -103,6 +104,19 @@ public class Player2Controller : MonoBehaviour
         {
             Bob.SetActive(false);
         }
+
+        if (hasRock == false)
+        {
+            CardInvy.GetComponent<CardInvyScript>().Rock.SetActive(false);
+        }
+        if (hasScissors == false)
+        {
+            CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(false);
+        }
+        if (hasPaper == false)
+        {
+            CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(false);
+        }
     }
 
 
@@ -153,6 +167,16 @@ public class Player2Controller : MonoBehaviour
             Inventory.GetComponent<inventoryScript>().Vacuum.SetActive(true);
 
             //Debug.Log("Vacuum!");
+            
+            tilesMoved = tilesMovedMax;
+            Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag.Equals("pupBS")) {
+            hasBS = true;
+            Inventory.GetComponent<inventoryScript>().BrokenStopwatch.SetActive(true);
+
+            //Debug.Log("Stopwatch!");
             
             tilesMoved = tilesMovedMax;
             Destroy(other.gameObject);

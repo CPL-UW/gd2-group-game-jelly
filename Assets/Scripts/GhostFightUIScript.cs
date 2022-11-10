@@ -43,6 +43,18 @@ public class GhostFightUIScript : MonoBehaviour {
         if(!PlayerOne.GetComponent<PlayerController>().hasScissors){
             Scissors.gameObject.SetActive(false);
         }
+
+        //below this resets it for when p2 uses a card that p1 also had
+        if(PlayerOne.GetComponent<PlayerController>().hasRock){
+            //Debug.Log("Doesn't have a Rock");
+            Rock.gameObject.SetActive(true);
+        }
+        if(PlayerOne.GetComponent<PlayerController>().hasPaper){
+            Paper.gameObject.SetActive(true);
+        }
+        if(PlayerOne.GetComponent<PlayerController>().hasScissors){
+            Scissors.gameObject.SetActive(true);
+        }
         PlayerOnefight();
     }
 
@@ -61,6 +73,17 @@ public class GhostFightUIScript : MonoBehaviour {
         }
         if(!PlayerTwo.GetComponent<Player2Controller>().hasScissors){
             Scissors.gameObject.SetActive(false);
+        }
+        
+        //below this resets it for when p1 uses a card that p2 also had
+        if(PlayerTwo.GetComponent<Player2Controller>().hasRock){
+            Rock.gameObject.SetActive(true);
+        }
+        if(PlayerTwo.GetComponent<Player2Controller>().hasPaper){
+            Paper.gameObject.SetActive(true);
+        }
+        if(PlayerTwo.GetComponent<Player2Controller>().hasScissors){
+            Scissors.gameObject.SetActive(true);
         }
         PlayerTwofight();
     }

@@ -7,6 +7,7 @@ public class inventoryScript : MonoBehaviour
     public GameObject Flashlight;
     public GameObject EMF;
     public GameObject Vacuum;
+    public GameObject BrokenStopwatch;
 
     void Start()
     {
