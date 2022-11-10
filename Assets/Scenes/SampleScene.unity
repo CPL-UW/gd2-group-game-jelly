@@ -4544,7 +4544,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 238950571}
   toggleTransition: 0
   graphic: {fileID: 0}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 549523042}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7398,7 +7398,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1815701678}
   toggleTransition: 0
   graphic: {fileID: 0}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 472174755}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7614,6 +7614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 472174754}
+  - component: {fileID: 472174755}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -7645,6 +7646,19 @@ RectTransform:
   m_AnchoredPosition: {x: -161.25003, y: -52.999985}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &472174755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472174753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &489741185
 GameObject:
   m_ObjectHideFlags: 0
@@ -8084,6 +8098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 549523041}
+  - component: {fileID: 549523042}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -8115,6 +8130,19 @@ RectTransform:
   m_AnchoredPosition: {x: -100.00003, y: -53}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &549523042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549523040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &559996154
 GameObject:
   m_ObjectHideFlags: 0
@@ -8609,7 +8637,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1228364148}
   toggleTransition: 0
   graphic: {fileID: 0}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 549523042}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -12570,7 +12598,7 @@ GameObject:
   - component: {fileID: 1460293583}
   - component: {fileID: 1460293584}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: ItemToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12641,7 +12669,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1485982318}
   toggleTransition: 0
   graphic: {fileID: 0}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 472174755}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
