@@ -161,7 +161,8 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("Ghost Collision");
             
             if(hasRock || hasPaper || hasScissors) {
-                GhostFightUIScript.Instance.TogglePlayerOneFight(other.gameObject);
+                PlayerOneGhostFightUIScript.Instance.TogglePlayerOneFight(other.gameObject);
+                //GhostFightUIScript.Instance.TogglePlayerOneFight(other.gameObject);
                 tilesMoved = tilesMovedMax;
                 
                 // if(didPlayerWin) {

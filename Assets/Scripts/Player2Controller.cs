@@ -148,7 +148,7 @@ public class Player2Controller : MonoBehaviour
         if(other.gameObject.tag.Equals("Ghost")) {
             //Debug.Log("Ghost Collision");
             if(hasRock || hasPaper || hasScissors) {
-                GhostFightUIScript.Instance.TogglePlayerTwoFight(other.gameObject);
+                PlayerTwoGhostFightUIScript.Instance.TogglePlayerTwoFight(other.gameObject);
                 tilesMoved = tilesMovedMax;
             }
         }
