@@ -14,6 +14,9 @@ public class turnControllerScript : MonoBehaviour
     //public GameObject p4gui;
     public GameObject ghost;
     public GameObject ggui;
+    private float PlayerOneSwapTimer;
+    private float PlayerTwoSwapTimer;
+    private float PlayerSwapTimerMax = 1;
 
     void Start()
     {
@@ -23,36 +26,48 @@ public class turnControllerScript : MonoBehaviour
         ggui.SetActive(false);
         player2.GetComponent<Player2Controller>().p2Turn = false;
         ghost.GetComponent<dadGhostScript>().ghostTurn = false;
+        PlayerOneSwapTimer = PlayerSwapTimerMax;
+        PlayerTwoSwapTimer = PlayerSwapTimerMax;
     }
 
     void Update()
     {
         if (player1.GetComponent<PlayerController>().tilesMoved == player1.GetComponent<PlayerController>().tilesMovedMax) //if p1 moves max tiles
         {
-            player1.GetComponent<PlayerController>().p1Turn = false; //end p1's turn
-            p1gui.SetActive(false); //deactivate p1's gui
-            //Debug.Log("Player 1's turn over!"); //debug line
-            player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
-            player1.GetComponent<PlayerController>().tilesMovedMax = 5; //resets p1's max tiles, if changed (ie flashlight)
-            player1.GetComponent<PlayerController>().SpeedInt = 0; //stops moving anim
-            p2gui.SetActive(true); //activate p2's gui
+            PlayerOneSwapTimer -= Time.deltaTime;
+            if(PlayerOneSwapTimer <= 0) {
+                PlayerOneSwapTimer = PlayerSwapTimerMax;
+                player1.GetComponent<PlayerController>().p1Turn = false; //end p1's turn
+                p1gui.SetActive(false); //deactivate p1's gui
+                //Debug.Log("Player 1's turn over!"); //debug line
+                player1.GetComponent<PlayerController>().tilesMoved = 0; //reset p1's tiles
+                player1.GetComponent<PlayerController>().tilesMovedMax = 5; //resets p1's max tiles, if changed (ie flashlight)
+                player1.GetComponent<PlayerController>().SpeedInt = 0; //stops moving anim
+                p2gui.SetActive(true); //activate p2's gui
 
-            // Unneeded after changing keybinding for each player - keep incase we change back
-            //StartCoroutine(DelayPlayerChange()); // wait a bit before giving control to player2 
+                // Unneeded after changing keybinding for each player - keep incase we change back
+                //StartCoroutine(DelayPlayerChange()); // wait a bit before giving control to player2 
 
-            player2.GetComponent<Player2Controller>().p2Turn = true; // give control to p2
+                player2.GetComponent<Player2Controller>().p2Turn = true; // give control to p2
+            }
+            
         }
 
         if (player2.GetComponent<Player2Controller>().tilesMoved == player2.GetComponent<Player2Controller>().tilesMovedMax)
         {
-            player2.GetComponent<Player2Controller>().p2Turn = false;
-            p2gui.SetActive(false);
-            //Debug.Log("Player 2's turn over!");
-            player2.GetComponent<Player2Controller>().tilesMoved = 0;
-            player2.GetComponent<Player2Controller>().tilesMovedMax = 5;
-            player2.GetComponent<Player2Controller>().SpeedInt = 0;
-            ghost.GetComponent<dadGhostScript>().ghostTurn = true;
-            ggui.SetActive(true);
+            PlayerTwoSwapTimer -= Time.deltaTime;
+            if(PlayerTwoSwapTimer <= 0) {
+                PlayerTwoSwapTimer = PlayerSwapTimerMax;
+                player2.GetComponent<Player2Controller>().p2Turn = false;
+                p2gui.SetActive(false);
+                //Debug.Log("Player 2's turn over!");
+                player2.GetComponent<Player2Controller>().tilesMoved = 0;
+                player2.GetComponent<Player2Controller>().tilesMovedMax = 5;
+                player2.GetComponent<Player2Controller>().SpeedInt = 0;
+                ghost.GetComponent<dadGhostScript>().ghostTurn = true;
+                ggui.SetActive(true);
+            }
+            
         }
 
         if (ghost != null && ghost.GetComponent<dadGhostScript>().tilesMoved == 10) //dad ghost has like 10 tiles I think

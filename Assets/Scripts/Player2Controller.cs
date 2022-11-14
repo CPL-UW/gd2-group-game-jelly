@@ -46,7 +46,7 @@ public class Player2Controller : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (p2Turn == true)
+        if (p2Turn == true && tilesMoved < tilesMovedMax)
         {
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
             {
@@ -127,6 +127,20 @@ public class Player2Controller : MonoBehaviour
         currScale.x *= -1;
         gameObject.transform.localScale = currScale;
         facingRight = !facingRight;
+
+        if(gameObject.transform.localScale.x < 0) {
+            Vector3 bobScale = Bob.transform.localScale;
+            bobScale.x *= -1;
+            Bob.transform.localScale = bobScale;
+        } else {
+            Vector3 bobScale = Bob.transform.localScale;
+            bobScale.x *= -1;
+            Bob.transform.localScale = bobScale;
+        }
+    }
+
+    public Vector3 GetPlayerTwoPosition() {
+        return gameObject.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (p1Turn == true)
+        if (p1Turn == true && tilesMoved < tilesMovedMax)
         {
             if (Vector3.Distance(transform.position, movePoint.position) <= 0.05f)
             {
@@ -132,12 +132,27 @@ public class PlayerController : MonoBehaviour
         currScale.x *= -1;
         gameObject.transform.localScale = currScale;
         facingRight = !facingRight;
+
+        if(gameObject.transform.localScale.x < 0) {
+            Vector3 bobScale = Bob.transform.localScale;
+            bobScale.x *= -1;
+            Bob.transform.localScale = bobScale;
+        } else {
+            Vector3 bobScale = Bob.transform.localScale;
+            bobScale.x *= -1;
+            Bob.transform.localScale = bobScale;
+        }
+
     }
 
     public void useLight(){
         tilesMovedMax = tilesMovedMax + 5;
         hasPupLight = false;
         Inventory.GetComponent<inventoryScript>().Flashlight.SetActive(false);
+    }
+
+    public Vector3 GetPlayerOnePosition() {
+        return gameObject.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

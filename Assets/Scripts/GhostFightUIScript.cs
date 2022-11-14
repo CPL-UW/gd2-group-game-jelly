@@ -119,9 +119,14 @@ public class GhostFightUIScript : MonoBehaviour {
             TogglePlayerOneFight(ghost);
             //ToggleVisible();
             if(GhostFight(rockValue)) {
-                Destroy(ghost);
+                Destroy(ghost); //destory ghost
+                PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
+                PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
+                TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
                 //Debug.Log("Player Won");
             } else {
+                PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
+                TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup
                 //Debug.Log("Player Lost");
             }
         });
@@ -130,6 +135,12 @@ public class GhostFightUIScript : MonoBehaviour {
             TogglePlayerOneFight(ghost);
             if(GhostFight(paperValue)) {
                 Destroy(ghost);
+                PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
+                PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
+                TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
+            } else {
+                PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
+                TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup
             }
         });
         Scissors.GetComponent<Button>().onClick.AddListener(() => {
@@ -137,6 +148,12 @@ public class GhostFightUIScript : MonoBehaviour {
             TogglePlayerOneFight(ghost);
             if(GhostFight(scissorsValue)) {
                 Destroy(ghost);
+                PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
+                PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
+                TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
+            } else {
+                PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
+                TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup
             }
         });
     }
@@ -147,6 +164,12 @@ public class GhostFightUIScript : MonoBehaviour {
             TogglePlayerTwoFight(ghost);
             if(GhostFight(rockValue)) {
                 Destroy(ghost);
+                PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount(); //update ecto count
+                PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount();
+                TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two Won: +2 Ectoplasm"); //text popup
+            } else {
+                PlayerTwoEctoCounterScript.Instance.DecreasePlayerTwoEctoCount(); //update ecto count
+                TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two lost: -1 Ectoplasm"); //text popup
             }
         });
         Paper.GetComponent<Button>().onClick.AddListener(() => {
@@ -154,6 +177,12 @@ public class GhostFightUIScript : MonoBehaviour {
             TogglePlayerTwoFight(ghost);
             if(GhostFight(paperValue)) {
                 Destroy(ghost);
+                PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount(); //update ecto count
+                PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount();
+                TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two Won: +2 Ectoplasm"); //text popup
+            } else {
+                PlayerTwoEctoCounterScript.Instance.DecreasePlayerTwoEctoCount(); //update ecto count
+                TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two lost: -1 Ectoplasm"); //text popup
             }
         });
         Scissors.GetComponent<Button>().onClick.AddListener(() => {
@@ -161,6 +190,12 @@ public class GhostFightUIScript : MonoBehaviour {
             TogglePlayerTwoFight(ghost);
             if(GhostFight(scissorsValue)) {
                 Destroy(ghost);
+                PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount(); //update ecto count
+                PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount();
+                TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two Won: +2 Ectoplasm"); //text popup
+            } else {
+                PlayerTwoEctoCounterScript.Instance.DecreasePlayerTwoEctoCount(); //update ecto count
+                TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two lost: -1 Ectoplasm"); //text popup
             }
         });
     }
