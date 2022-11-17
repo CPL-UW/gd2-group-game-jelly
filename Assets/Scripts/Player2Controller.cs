@@ -151,6 +151,10 @@ public class Player2Controller : MonoBehaviour
                 PlayerTwoGhostFightUIScript.Instance.TogglePlayerTwoFight(other.gameObject);
                 tilesMoved = tilesMovedMax;
             }
+            else
+            {
+                TextPopUp.Create(GetPlayerTwoPosition(), "No cards!");
+            }
         }
 
         if(other.gameObject.tag.Equals("pupLight")) {

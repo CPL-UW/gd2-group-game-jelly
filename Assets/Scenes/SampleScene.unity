@@ -12164,6 +12164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1108326046}
+  - component: {fileID: 1108326047}
   m_Layer: 5
   m_Name: PlayerOneEctoplasmCount
   m_TagString: Untagged
@@ -12193,6 +12194,18 @@ RectTransform:
   m_AnchoredPosition: {x: -111.20001, y: 2.1000113}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1108326047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108326045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8593e94ba557c994490d47cad4e59040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129854016
 GameObject:
   m_ObjectHideFlags: 0
@@ -16729,7 +16742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1619349220
 Transform:
   m_ObjectHideFlags: 0

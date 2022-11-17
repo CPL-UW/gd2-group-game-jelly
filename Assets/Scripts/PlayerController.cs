@@ -174,6 +174,10 @@ public class PlayerController : MonoBehaviour
                 // }
                 //Destroy(other.gameObject);
             }
+            else
+            {
+                TextPopUp.Create(GetPlayerOnePosition(), "No cards!");
+            }
             
         }
 
