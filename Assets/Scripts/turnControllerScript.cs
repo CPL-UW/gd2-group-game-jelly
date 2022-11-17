@@ -18,6 +18,7 @@ public class turnControllerScript : MonoBehaviour
     private float PlayerOneSwapTimer;
     private float PlayerTwoSwapTimer;
     private float PlayerSwapTimerMax = 1;
+    public int GhostsDefeated = 0;
 
 
     void Start()

@@ -12440,6 +12440,7 @@ MonoBehaviour:
   ghost: {fileID: 1398529123}
   ggui: {fileID: 542712845}
   tutorial: {fileID: 1722824115}
+  GhostsDefeated: 0
 --- !u!212 &962770606
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15300,7 +15301,7 @@ MonoBehaviour:
   CardInvy: {fileID: 1401222937}
   Bob: {fileID: 1924502374}
   Randomizer: {fileID: 1567761870}
-  p1DidWin: 0
+  TurnController: {fileID: 962770604}
   movePoint: {fileID: 2013387732}
   SpeedInt: 0
   whatStopsMovement:

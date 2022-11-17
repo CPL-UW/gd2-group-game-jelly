@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     public GameObject CardInvy;
     public GameObject Bob;
     public GameObject Randomizer;
-    public bool p1DidWin = false;
+    public GameObject TurnController;
+    public bool p1Win = false;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -123,6 +124,12 @@ public class PlayerController : MonoBehaviour
         if (hasPaper == false)
         {
             CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(false);
+        }
+
+        if (p1Win == true)
+        {
+            p1DidWin();
+            p1Win = false;
         }
     }
 
@@ -261,6 +268,10 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+    }
+
+    public void p1DidWin(){
+        TurnController.GetComponent<turnControllerScript>().GhostsDefeated ++;
     }
 
 }
