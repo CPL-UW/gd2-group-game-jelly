@@ -14,14 +14,18 @@ public class turnControllerScript : MonoBehaviour
     //public GameObject p4gui;
     public GameObject ghost;
     public GameObject ggui;
+    public GameObject tutorial;
     private float PlayerOneSwapTimer;
     private float PlayerTwoSwapTimer;
     private float PlayerSwapTimerMax = 1;
 
+
     void Start()
     {
-        player1.GetComponent<PlayerController>().p1Turn = true;
-        p1gui.SetActive(true);
+        tutorial.SetActive(true);
+        player1.GetComponent<PlayerController>().p1Turn = false;
+        player1.GetComponent<PlayerController>().p1CanMove = false;
+        p1gui.SetActive(false);
         p2gui.SetActive(false);
         ggui.SetActive(false);
         player2.GetComponent<Player2Controller>().p2Turn = false;
@@ -86,4 +90,8 @@ public class turnControllerScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         player2.GetComponent<Player2Controller>().p2Turn = true; //start p2's turn
     } */
+    public void StartGame() {
+        p1gui.SetActive(true);
+        player1.GetComponent<PlayerController>().p1Turn = true;
+    }
 }

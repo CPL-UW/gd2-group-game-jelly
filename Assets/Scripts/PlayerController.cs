@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Inventory;
     public GameObject CardInvy;
     public GameObject Bob;
+    public bool p1DidWin = false;
 
     public Transform movePoint;
     public int SpeedInt;
