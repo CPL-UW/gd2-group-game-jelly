@@ -9,6 +9,10 @@ public class randoControllerScript : MonoBehaviour
     public GameObject VacuumMaster;
     public GameObject BSMaster;
 
+    public GameObject RockMaster;
+    public GameObject PaperMaster;
+    public GameObject ScissorsMaster;
+
     public GameObject FlashlightDefault;
     public GameObject FlashlightDefault2;
     public GameObject EMFDefault;
@@ -27,6 +31,11 @@ public class randoControllerScript : MonoBehaviour
 
     public int BSX = 0;
     public int BSY = 0;
+
+    public int Card = 0;
+    public int CardQuadrant = 0; //which corner to spawn the card in
+    public int CardX = 0;
+    public int CardY = 0;
 
     void Start()
     {
@@ -53,5 +62,47 @@ public class randoControllerScript : MonoBehaviour
         Instantiate(FlashlightMaster, new Vector3(FLX2,FLY2,0), Quaternion.identity);
         Instantiate(EMFMaster, new Vector3(EMFX,EMFY,0), Quaternion.identity);
         Instantiate(VacuumMaster, new Vector3(VX,VY,0), Quaternion.identity);
+    }
+
+    public void spawnCard(){
+        CardQuadrant = Random.Range(1,5);
+        switch (CardQuadrant)
+        {
+            case 1: //top left
+                CardX = Random.Range(3,10);
+                CardY = Random.Range(-7,-2);
+                break;
+            case 2: //top right
+                CardX = Random.Range(12,25);
+                CardY = Random.Range(-7,-2);
+                break;
+            case 3: //bottom left
+                CardX = Random.Range(3,16);
+                CardY = Random.Range(-13,-9);
+                break;
+            case 4: //bottom right
+                CardX = Random.Range(18,25);
+                CardY = Random.Range(-13,-9);
+                break;
+            default:
+                Debug.Log("Huh?");
+                break;
+        }
+        Card = Random.Range(1,4);
+        switch (Card)
+        {
+            case 1: //rock
+                Instantiate(RockMaster, new Vector3(CardX,CardY,0), Quaternion.identity);
+                break;
+            case 2: //paper
+                Instantiate(PaperMaster, new Vector3(CardX,CardY,0), Quaternion.identity);
+                break;
+            case 3: //scissors
+                Instantiate(ScissorsMaster, new Vector3(CardX,CardY,0), Quaternion.identity);
+                break;
+            default:
+                Debug.Log("Uh oh");
+                break;
+        }
     }
 }

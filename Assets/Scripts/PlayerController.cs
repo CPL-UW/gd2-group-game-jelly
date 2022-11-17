@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Inventory;
     public GameObject CardInvy;
     public GameObject Bob;
+    public GameObject Randomizer;
     public bool p1DidWin = false;
 
     public Transform movePoint;
@@ -226,6 +227,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.tag.Equals("Rock")) {
                 hasRock = true;
                 CardInvy.GetComponent<CardInvyScript>().Rock.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -238,6 +240,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.tag.Equals("Paper")) {
                 hasPaper = true;
                 CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -250,6 +253,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.tag.Equals("Scissors")) {
                 hasScissors = true;
                 CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 

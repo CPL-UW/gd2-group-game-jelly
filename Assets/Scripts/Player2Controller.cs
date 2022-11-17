@@ -23,6 +23,7 @@ public class Player2Controller : MonoBehaviour
     public Transform movePoint;
     public int SpeedInt;
     public GameObject Bob;
+    public GameObject Randomizer;
 
     public LayerMask whatStopsMovement;
 
@@ -201,6 +202,7 @@ public class Player2Controller : MonoBehaviour
             if(other.gameObject.tag.Equals("Rock")) {
                 hasRock = true;
                 CardInvy.GetComponent<CardInvyScript>().Rock.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -213,6 +215,7 @@ public class Player2Controller : MonoBehaviour
             if(other.gameObject.tag.Equals("Paper")) {
                 hasPaper = true;
                 CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -225,6 +228,7 @@ public class Player2Controller : MonoBehaviour
             if(other.gameObject.tag.Equals("Scissors")) {
                 hasScissors = true;
                 CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
