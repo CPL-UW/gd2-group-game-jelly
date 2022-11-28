@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     public GameObject Inventory;
     public GameObject CardInvy;
     public GameObject Bob;
+    public GameObject Randomizer;
+    public GameObject TurnController;
+    public bool p1Win = false;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -122,6 +125,12 @@ public class PlayerController : MonoBehaviour
         {
             CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(false);
         }
+
+        if (p1Win == true)
+        {
+            p1DidWin();
+            p1Win = false;
+        }
     }
 
 
@@ -174,6 +183,10 @@ public class PlayerController : MonoBehaviour
                 // }
                 //Destroy(other.gameObject);
             }
+            else
+            {
+                TextPopUp.Create(GetPlayerOnePosition(), "No cards!");
+            }
             
         }
 
@@ -221,6 +234,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.tag.Equals("Rock")) {
                 hasRock = true;
                 CardInvy.GetComponent<CardInvyScript>().Rock.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -233,6 +247,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.tag.Equals("Paper")) {
                 hasPaper = true;
                 CardInvy.GetComponent<CardInvyScript>().Paper.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -245,6 +260,7 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject.tag.Equals("Scissors")) {
                 hasScissors = true;
                 CardInvy.GetComponent<CardInvyScript>().Scissors.SetActive(true);
+                Randomizer.GetComponent<randoControllerScript>().spawnCard();
 
                 //Debug.Log("Flashlight!");
                 
@@ -252,6 +268,10 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+    }
+
+    public void p1DidWin(){
+        TurnController.GetComponent<turnControllerScript>().GhostsDefeated ++;
     }
 
 }

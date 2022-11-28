@@ -93,6 +93,8 @@ public class PlayerOneGhostFightUIScript : MonoBehaviour {
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
+                //PlayerOne.GetComponent<PlayerController>().p1DidWin()
+                PlayerOne.GetComponent<PlayerController>().p1Win = true;
                 //Debug.Log("Player Won");
             } else {
                 PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
@@ -109,6 +111,7 @@ public class PlayerOneGhostFightUIScript : MonoBehaviour {
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
+                PlayerOne.GetComponent<PlayerController>().p1Win = true;
             } else {
                 PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup
@@ -123,6 +126,7 @@ public class PlayerOneGhostFightUIScript : MonoBehaviour {
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
+                PlayerOne.GetComponent<PlayerController>().p1Win = true;
             } else {
                 PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup
