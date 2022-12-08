@@ -12945,7 +12945,9 @@ MonoBehaviour:
   ggui: {fileID: 542712845}
   tutorial: {fileID: 1722824115}
   GhostsDefeated: 0
-  winsScreen: {fileID: 0}
+  winsScreen: {fileID: 1127562075}
+  p1WinScreen: {fileID: 69506597}
+  p2WinScreen: {fileID: 532760929}
 --- !u!212 &962770606
 SpriteRenderer:
   m_ObjectHideFlags: 0

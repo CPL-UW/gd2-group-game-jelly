@@ -20,6 +20,8 @@ public class turnControllerScript : MonoBehaviour
     private float PlayerSwapTimerMax = 1;
     public int GhostsDefeated = 0;
     public GameObject winsScreen;
+    public GameObject p1WinScreen;
+    public GameObject p2WinScreen;
 
 
     void Start()
@@ -92,6 +94,14 @@ public class turnControllerScript : MonoBehaviour
             player2.GetComponent<Player2Controller>().p2Turn = false;
             player1.GetComponent<PlayerController>().p1Turn = false;
             winsScreen.SetActive(true);
+            if (player1.GetComponent<PlayerController>().p1Ecto > player2.GetComponent<Player2Controller>().p2Ecto)
+            {
+                p1WinScreen.SetActive(true);
+            }
+            if (player2.GetComponent<Player2Controller>().p2Ecto > player1.GetComponent<PlayerController>().p1Ecto)
+            {
+                p2WinScreen.SetActive(true);
+            }
 
         }
     }
