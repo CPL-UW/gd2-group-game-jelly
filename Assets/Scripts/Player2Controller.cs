@@ -25,6 +25,9 @@ public class Player2Controller : MonoBehaviour
     public GameObject Bob;
     public GameObject Randomizer;
 
+    public GameObject p2EctoCounter;
+    public int p2Ecto;
+
     public LayerMask whatStopsMovement;
 
     public bool facingRight;
@@ -46,6 +49,8 @@ public class Player2Controller : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        p2Ecto = p2EctoCounter.GetComponent<PlayerTwoEctoCounterScript>()._ectoCounter;
 
         if (p2Turn == true && tilesMoved < tilesMovedMax)
         {

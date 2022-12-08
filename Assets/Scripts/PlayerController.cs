@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Randomizer;
     public GameObject TurnController;
     public bool p1Win = false;
+    public GameObject p1EctoCounter;
+    public int p1Ecto;
 
     public Transform movePoint;
     public int SpeedInt;
@@ -53,6 +55,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        p1Ecto = p1EctoCounter.GetComponent<PlayerOneEctoCounterScript>()._ectoCounter;
 
         if (p1Turn == true && tilesMoved < tilesMovedMax)
         {
@@ -128,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
         if (p1Win == true)
         {
-            p1DidWin();
+            //p1DidWin();
             p1Win = false;
         }
     }
@@ -270,8 +274,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void p1DidWin(){
-        TurnController.GetComponent<turnControllerScript>().GhostsDefeated ++;
-    }
+    //public void p1DidWin(){
+       // TurnController.GetComponent<turnControllerScript>().GhostsDefeated ++;
+    //}
 
 }

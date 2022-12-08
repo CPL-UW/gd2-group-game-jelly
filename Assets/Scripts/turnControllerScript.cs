@@ -19,6 +19,7 @@ public class turnControllerScript : MonoBehaviour
     private float PlayerTwoSwapTimer;
     private float PlayerSwapTimerMax = 1;
     public int GhostsDefeated = 0;
+    public GameObject winsScreen;
 
 
     void Start()
@@ -83,6 +84,15 @@ public class turnControllerScript : MonoBehaviour
             ghost.GetComponent<dadGhostScript>().tilesMoved = 0;
             player1.GetComponent<PlayerController>().p1Turn = true;
             p1gui.SetActive(true);
+        }
+
+        if (GhostsDefeated == 5)
+        {
+            ghost.GetComponent<dadGhostScript>().ghostTurn = false;
+            player2.GetComponent<Player2Controller>().p2Turn = false;
+            player1.GetComponent<PlayerController>().p1Turn = false;
+            winsScreen.SetActive(true);
+
         }
     }
 

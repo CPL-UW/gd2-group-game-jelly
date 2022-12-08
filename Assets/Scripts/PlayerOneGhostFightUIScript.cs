@@ -89,12 +89,13 @@ public class PlayerOneGhostFightUIScript : MonoBehaviour {
             TogglePlayerOneFight(ghost);
             //ToggleVisible();
             if(GhostFight(rockValue)) {
-                Destroy(ghost); //destory ghost
+                //Destroy(ghost); //destory ghost
+                ghost.transform.position = new Vector3(-5,-5,0); //instead of destroy, moves to off-screen position. band-aid fix to make the game winnable.
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
                 //PlayerOne.GetComponent<PlayerController>().p1DidWin()
-                PlayerOne.GetComponent<PlayerController>().p1Win = true;
+                //PlayerOne.GetComponent<PlayerController>().p1Win = true;
                 //Debug.Log("Player Won");
             } else {
                 PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
@@ -107,11 +108,14 @@ public class PlayerOneGhostFightUIScript : MonoBehaviour {
             TogglePlayerOneFight(ghost);
             //ToggleVisible();
             if(GhostFight(paperValue)) {
-                Destroy(ghost);
+                //Destroy(ghost);
+                
+                ghost.transform.position = new Vector3(-5,-5,0);
+
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
-                PlayerOne.GetComponent<PlayerController>().p1Win = true;
+                //PlayerOne.GetComponent<PlayerController>().p1Win = true;
             } else {
                 PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup
@@ -122,11 +126,13 @@ public class PlayerOneGhostFightUIScript : MonoBehaviour {
             TogglePlayerOneFight(ghost);
             //ToggleVisible();
             if(GhostFight(scissorsValue)) {
-                Destroy(ghost);
+                //Destroy(ghost);
+
+                ghost.transform.position = new Vector3(-5,-5,0);
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount(); //update ecto count
                 PlayerOneEctoCounterScript.Instance.IncreasePlayerOneEctoCount();
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Won: +2 Ectoplasm"); //text popup
-                PlayerOne.GetComponent<PlayerController>().p1Win = true;
+                //PlayerOne.GetComponent<PlayerController>().p1Win = true;
             } else {
                 PlayerOneEctoCounterScript.Instance.DecreasePlayerOneEctoCount(); //update ecto count
                 TextPopUp.Create(PlayerOne.GetComponent<PlayerController>().GetPlayerOnePosition(), "Player One Lost: -1 Ectoplasm"); //text popup

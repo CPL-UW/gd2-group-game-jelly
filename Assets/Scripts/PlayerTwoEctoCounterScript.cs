@@ -7,7 +7,7 @@ public class PlayerTwoEctoCounterScript : MonoBehaviour {
     public static PlayerTwoEctoCounterScript Instance {get; private set;}
     
     private TextMeshProUGUI PlayerTwoEctoCounter;
-    private int _ectoCounter = 2;
+    public int _ectoCounter = 2;
     private void Awake() {
         Instance = this;
         PlayerTwoEctoCounter = transform.Find("EctoCount").GetComponent<TextMeshProUGUI>();

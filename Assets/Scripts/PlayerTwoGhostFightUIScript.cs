@@ -82,7 +82,8 @@ public class PlayerTwoGhostFightUIScript : MonoBehaviour {
             PlayerTwo.GetComponent<Player2Controller>().hasRock = false;
             TogglePlayerTwoFight(ghost);
             if(GhostFight(rockValue)) {
-                Destroy(ghost);
+                //Destroy(ghost);
+                ghost.transform.position = new Vector3(-5,-5,0);
                 PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount(); //update ecto count
                 PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount();
                 TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two Won: +2 Ectoplasm"); //text popup
@@ -95,7 +96,8 @@ public class PlayerTwoGhostFightUIScript : MonoBehaviour {
             PlayerTwo.GetComponent<Player2Controller>().hasPaper = false;
             TogglePlayerTwoFight(ghost);
             if(GhostFight(paperValue)) {
-                Destroy(ghost);
+                //Destroy(ghost);
+                ghost.transform.position = new Vector3(-5,-5,0);
                 PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount(); //update ecto count
                 PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount();
                 TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two Won: +2 Ectoplasm"); //text popup
@@ -108,7 +110,8 @@ public class PlayerTwoGhostFightUIScript : MonoBehaviour {
             PlayerTwo.GetComponent<Player2Controller>().hasScissors = false;
             TogglePlayerTwoFight(ghost);
             if(GhostFight(scissorsValue)) {
-                Destroy(ghost);
+                //Destroy(ghost);
+                ghost.transform.position = new Vector3(-5,-5,0);
                 PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount(); //update ecto count
                 PlayerTwoEctoCounterScript.Instance.IncreasePlayerTwoEctoCount();
                 TextPopUp.Create(PlayerTwo.GetComponent<Player2Controller>().GetPlayerTwoPosition(), "Player Two Won: +2 Ectoplasm"); //text popup

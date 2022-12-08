@@ -14,6 +14,9 @@ public class lilGhostScript : MonoBehaviour
     public GameObject dadGhost;
     public bool facingRight;
     public int rpsChoice;
+    public GameObject TurnController;
+    public bool isDead = false;
+    public bool counted = false;
 
     void Start()
     {
@@ -48,6 +51,19 @@ public class lilGhostScript : MonoBehaviour
             StopCoroutine("GhostMove");
             //Debug.Log("Lil Ghost's turn over!");
             tilesMoved = 0;
+        }
+
+        if (transform.position.x < 0f) //checks if in the off-screen 'dead' position, so that it can no longer move
+        {
+            movePoint.position = new Vector3(-5, -5, 0);
+            isDead = true;
+        }
+
+        if (isDead == true && counted == false)
+        {
+            TurnController.GetComponent<turnControllerScript>().GhostsDefeated ++; //increases 'dead' ghosts count
+            //stops from counting forever
+            counted = true;
         }
     }
 
