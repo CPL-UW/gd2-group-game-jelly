@@ -93,11 +93,19 @@ public class turnControllerScript : MonoBehaviour
             ghost.GetComponent<dadGhostScript>().ghostTurn = false;
             player2.GetComponent<Player2Controller>().p2Turn = false;
             player1.GetComponent<PlayerController>().p1Turn = false;
+            p2gui.SetActive(false);
+            ggui.SetActive(false);
+            p1gui.SetActive(false);
+            player1.SetActive(false);
+            player2.SetActive(false);
+            ghost.SetActive(false);
+            
             winsScreen.SetActive(true);
             if (player1.GetComponent<PlayerController>().p1Ecto > player2.GetComponent<Player2Controller>().p2Ecto)
             {
                 p1WinScreen.SetActive(true);
             }
+
             if (player2.GetComponent<Player2Controller>().p2Ecto > player1.GetComponent<PlayerController>().p1Ecto)
             {
                 p2WinScreen.SetActive(true);
